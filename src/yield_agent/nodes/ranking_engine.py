@@ -266,8 +266,8 @@ def _generate_warnings(
     if opportunity.apy > 50:
         warnings.append("Very high APY may not be sustainable")
     
-    if opportunity.il_risk.value in ["medium", "high"]:
-        warnings.append(f"Impermanent loss risk: {opportunity.il_risk.value}")
+    if str(opportunity.il_risk) in ["medium", "high", "ILRisk.MEDIUM", "ILRisk.HIGH"]:
+        warnings.append(f"Impermanent loss risk: {opportunity.il_risk}")
     
     if requires_bridge and bridge_route:
         cost_percent = (bridge_route.total_cost_usd / amount) * 100 if amount > 0 else 0
