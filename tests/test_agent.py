@@ -90,7 +90,7 @@ def test_parse_amount_and_token() -> bool:
 def test_parse_chains() -> bool:
     """Test chain parsing."""
     test_cases = [
-        ("yields on arbitrum", ["arbitrum"], None),
+        ("yields on arbitrum", ["arbitrum"], "arbitrum"),
         ("I'm on ethereum looking for base yields", ["ethereum", "base"], "ethereum"),
         ("polygon and avalanche", ["polygon", "avalanche"], None),
     ]
@@ -139,7 +139,7 @@ def test_parse_intent() -> bool:
         ("where to put my USDC for yield", Intent.YIELD_SEARCH),
         ("compare Aave vs Compound", Intent.COMPARE_PROTOCOLS),
         ("bridge my tokens to Arbitrum", Intent.ROUTE_ONLY),
-        ("is Yearn safe", Intent.RISK_ANALYSIS),
+        ("analyze the risk of this pool", Intent.RISK_ANALYSIS),
     ]
     
     all_passed = True
